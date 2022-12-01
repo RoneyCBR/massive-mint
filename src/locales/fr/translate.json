@@ -1,0 +1,14 @@
+{
+    "topbar":{
+        "play":"Play",
+        "history":"History",
+        "shop":"Shop",
+        "gallery":"Gallery",
+        "news":"News"
+    },
+
+    "play":{
+        "play":"Play",
+        "buy":"Buy"
+    }
+}
