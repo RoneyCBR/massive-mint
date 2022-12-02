@@ -9,19 +9,26 @@ module.exports = {
     libraryTarget: 'commonjs2'
   },
   module: {
-    rules: [
+    rules: [     
       {
-        test: /\.js$/,
-        include: path.resolve(__dirname, 'src'),
-        exclude: /(node_modules|bower_components|build)/,
+        test: /\.(ts|tsx)?$/,
         use: {
-          loader: 'babel-loader',
+          loader: require.resolve("babel-loader"),
           options: {
-            presets: ['env']
-          }
-        }
-      }
-    ]
+          generatorOpts: { compact: false },
+            presets: [
+              "@babel/preset-env",
+              ["@babel/preset-react", { runtime: "automatic" }],
+              "@babel/preset-typescript",
+            ],
+            plugins: [
+              ["relay", { artifactDirectory: "../../__generated__", eagerESModules: true }],
+              ["@babel/plugin-transform-runtime"],
+            ],
+          },
+        },
+      },
+    ],
   },
   externals: {
     // La linea de aqui abajo es solo para indicar que vamos a utilizar la dependencia "React" de parent-testing-project.
