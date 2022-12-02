@@ -1,0 +1,62 @@
+/*********** fonts *************/
+
+@font-face {
+    font-family: "Futura";   /*Can be any text*/
+    src: local("Futura"),
+      url("assets/fonts/Futura.ttf") format("ttf");
+}
+
+body {
+	top: 0 !important;
+}
+.goog-te-banner-frame {
+	display: none !important;
+	visibility: hidden !important;
+}
+
+.goog-logo-link{
+	display:none !important;
+}
+
+.goog-te-gadget{
+	color:transparent!important;
+	width: 0;
+}
+
+.goog-te-combo {
+	font-size: 2em;
+	border: none;
+	box-shadow: none;
+	outline: none;
+	background: transparent;
+	color: transparent;
+	cursor:pointer;
+	appearance: none;
+	margin: 10px;
+	padding:10px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	
+}
+
+.goog-te-combo>option {
+	color: #000;
+}
+
+.goog-te-gadget .goog-te-combo {
+    margin-top: 1.1rem;
+	width: 0;
+}
+
+@media (max-width: 667px) {
+	.goog-te-combo {
+		color: #fff;
+		font-size: 16px;
+		width: 10rem;
+		font-family:'Futura,Trebuchet MS,Arial,sans-serif',Helvetica, Arial, Verdana, Tahoma, sans-serif;
+	}
+	.goog-te-combo>option {
+		color: #000;
+	}
+}
+
