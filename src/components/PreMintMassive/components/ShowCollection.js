@@ -2,6 +2,7 @@ import React from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import CollectionCard from '../components/CollectionCard';
+import PropTypes from 'prop-types';
 
 const ShowCollection = ({content,loading,error}) =>{
     return (
