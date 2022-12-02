@@ -18,6 +18,10 @@ const PreMintMassive = ({
     titleCollection
     })=>{
 
+    const handleClick = () =>{
+        alert("puto!");
+    }
+
     return (
         <Box>
             <Container maxWidth="xl">
@@ -27,7 +31,7 @@ const PreMintMassive = ({
                             <ContentArea>
                                 <ContentForm>
                                     <center>
-                                        <TitleH2>{titleCollection}</TitleH2>
+                                        <TitleH2 onClick={handleClick}>{titleCollection}</TitleH2>
                                     </center>
                                     <Box component='section' sx={{m:'0 auto',width:'90%',minHeight:'200px',maxHeight:'400px'}} >
                                         
