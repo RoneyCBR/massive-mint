@@ -2,11 +2,6 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import PropTypes from 'prop-types';
-import {
-    CardContent,
-    ContentArea
-} from './style';
-
 
 const PreMintMassive = ({data}) => {
 
@@ -15,13 +10,7 @@ const PreMintMassive = ({data}) => {
         <Box>
             <Container maxWidth="xl">
                     <br></br>
-                    <CardContent>
-                        <Box sx={{mb:'10px'}}>  
-                            <ContentArea>
-                               MassiveMint {data.userAccount}
-                            </ContentArea>
-                        </Box>
-                    </CardContent>
+                    MassiveMint {data.userAccount}
             </Container>
         </Box>
     );
@@ -32,7 +21,7 @@ PreMintMassive.defaultProps = {
 };
 
 PreMintMassive.propTypes = {
-    data: PropTypes.object,
+    data: PropTypes.object
 };
 
 export default PreMintMassive;
