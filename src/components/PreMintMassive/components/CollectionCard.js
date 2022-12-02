@@ -111,7 +111,7 @@ const CollectionCard = ({ content, limit}) => {
 
 CollectionCard.defaultProps = {
     showBtnAll: false,
-    content: collections,
+    content: [],
     limit: 8,
 }
 
