@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
 import PropTypes from 'prop-types';
 import {useFetch} from './hooks/useFetch';
+import CollectionCard from './components/CollectionCard';
 import {
     CardContent,
     ContentArea,
@@ -31,7 +32,7 @@ const ShowCollection = ({content,loading,error}) =>{
                 <React.Fragment>
                     {
                         !error && content &&
-                        'ready!'
+                        <CollectionCard content={content} limit={1}/>
                     }
                 </React.Fragment>
             }

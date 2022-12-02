@@ -53,7 +53,7 @@ const DisplayOverBottom = styled(Box)({
     boxSizing: "border-box",
 });
 
-const CollectionCard = ({ content, limit,t}) => {
+const CollectionCard = ({ content, limit}) => {
 
     if(content == null || content && content.length === 0) {
         return (
@@ -61,7 +61,7 @@ const CollectionCard = ({ content, limit,t}) => {
                 sx={{width:'100%', height:'100%', display:'flex', justifyContent:'center', alignItems:'center'}} 
             >
                 <Typography variant='h6' sx={{color:'red'}}>
-                    {t("explore.not_found")}
+                    not found result
                 </Typography>
             </Box>
      
