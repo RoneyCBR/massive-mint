@@ -2,7 +2,7 @@ import React from 'react';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import PropTypes from 'prop-types';
-
+import {useFetch} from './hooks/useFetch';
 import {
     CardContent,
     ContentArea,
@@ -13,14 +13,48 @@ import {
     ContentFilter
 } from './style';
 
+const ShowCollection = ({content,loading,error}) =>{
+    return (
+        <React.Fragment>
+            {
+                loading ?
+                <Box sx={{display:'flex',justifyContent:'center',alignItems:'center',width:'100%',height:'200px'}}>
+                    <CircularProgress
+                        size={35}
+                        sx={{
+                            color: '#000'
+                        }}
+                    />
+                </Box>
+                :
+                <React.Fragment>
+                    {
+                        !error && content &&
+                        'ready!'
+                    }
+                </React.Fragment>
+            }
+        </React.Fragment>
+    )
+}
+
+ShowCollection.propTypes = {
+    content: PropTypes.array,
+    loading: PropTypes.bool,
+    error: PropTypes.any
+}
+
 const PreMintMassive = ({
     data,
-    titleCollection
+    titleCollection,
+    urlCollections
     })=>{
 
-    const handleClick = () =>{
-        alert("puto!");
-    }
+        const {data:projectData, loading:projectLoading, error:projectError} = useFetch(urlCollections) //collection
+
+        const handleClick = () =>{
+            alert("puto!");
+        }
 
     return (
         <Box>
@@ -34,7 +68,7 @@ const PreMintMassive = ({
                                         <TitleH2 onClick={handleClick}>{titleCollection}</TitleH2>
                                     </center>
                                     <Box component='section' sx={{m:'0 auto',width:'90%',minHeight:'200px',maxHeight:'400px'}} >
-                                        
+                                        <ShowCollection  content={projectData} loading={projectLoading} error={projectError}/>
                                     </Box>
                                 </ContentForm>
                                 <LineDividerV orientation="vertical"  flexItem />
@@ -52,7 +86,8 @@ const PreMintMassive = ({
 
 PreMintMassive.propTypes = {
     data: PropTypes.object,
-    titleCollection: PropTypes.string
+    titleCollection: PropTypes.string,
+    urlCollections: PropTypes.string
 };
 
 
