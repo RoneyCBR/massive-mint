@@ -4,11 +4,12 @@ import Box from '@mui/material/Box';
 import PropTypes from 'prop-types';
 import {
     CardContent,
-    ContentArea
+    ContentArea,
+    ContentForm,
+    TitleH2
 } from './style';
 
-const PreMintMassive = ({data})=>{
-
+const PreMintMassive = ({data,titleCollection})=>{
     return (
         <Box>
             <Container maxWidth="xl">
@@ -16,7 +17,12 @@ const PreMintMassive = ({data})=>{
                     <CardContent>
                         <Box sx={{mb:'10px'}}>  
                             <ContentArea>
-                                MassiveMint {data.userAccount+''}
+                                <ContentForm>
+                                    <center>
+                                        <TitleH2>{titleCollection}</TitleH2>
+                                    </center>
+                                    MassiveMint {data.userAccount+''}
+                                </ContentForm>
                             </ContentArea>
                         </Box>
                     </CardContent>
@@ -26,7 +32,8 @@ const PreMintMassive = ({data})=>{
 }
 
 PreMintMassive.propTypes = {
-    data: PropTypes.object
+    data: PropTypes.object,
+    titleCollection: PropTypes.string
 };
 
 
