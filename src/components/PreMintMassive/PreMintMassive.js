@@ -13,7 +13,7 @@ import {
     ContentFilter
 } from './style';
 
-const ShowCollection = ({content,loading,error}) =>{
+const ShowCollection = ({content,loading,error,t}) =>{
     return (
         <React.Fragment>
             {
@@ -30,7 +30,7 @@ const ShowCollection = ({content,loading,error}) =>{
                 <React.Fragment>
                     {
                         !error && content &&
-                        <CollectionCard content={content} limit={1}/>
+                        <CollectionCard content={content} limit={1} t={t}/>
                     }
                 </React.Fragment>
             }
@@ -41,14 +41,16 @@ const ShowCollection = ({content,loading,error}) =>{
 ShowCollection.propTypes = {
     content: PropTypes.array,
     loading: PropTypes.bool,
-    error: PropTypes.any
+    error: PropTypes.any,
+    t: PropTypes.any
 }
 
 const PreMintMassive = ({
     data,
     titleCollection,
     url,
-    useFetch
+    useFetch,
+    t
     })=>{
     let urlCollection = `${url}`
     const {data:projectData, loading:projectLoading, error:projectError} = useFetch(urlCollection) //collection
@@ -64,7 +66,12 @@ const PreMintMassive = ({
                                         <TitleH2>{titleCollection}</TitleH2>
                                     </center>
                                     <Box component='section' sx={{m:'0 auto',width:'90%',minHeight:'200px',maxHeight:'400px'}} >
-                                        <ShowCollection  content={projectData} loading={projectLoading} error={projectError}/>
+                                        <ShowCollection  
+                                            content={projectData} 
+                                            loading={projectLoading} 
+                                            error={projectError}
+                                            t={t}
+                                        />
                                     </Box>
                                 </ContentForm>
                                 <LineDividerV orientation="vertical"  flexItem />
@@ -84,7 +91,8 @@ PreMintMassive.propTypes = {
     data: PropTypes.object,
     titleCollection: PropTypes.string,
     url: PropTypes.string,
-    useFetch: PropTypes.func
+    useFetch: PropTypes.func,
+    t: PropTypes.any,
 };
 
 
