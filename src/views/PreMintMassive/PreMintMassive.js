@@ -34,6 +34,4 @@ PreMintMassive.propTypes = {
     data: PropTypes.object,
 };
 
-
-
-export {PreMintMassive};
+export default PreMintMassive;
