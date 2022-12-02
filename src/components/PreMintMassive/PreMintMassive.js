@@ -25,7 +25,7 @@ const PreMintMassive = ({
     let day = 86399000; // one day
     let nMonth = day * 30; // 30 days
     let maxDate = (new Date().getTime()) + (nMonth*3); // max date selected
-    const [isOwner,setIsOwner] = React.useState(false);
+    const [isOwner,setIsOwner] = React.useState(true);
     const [checkedSharing,setCheckedSharing] = React.useState(false);
     const [showOptionPanel, setShowOptionPanel] = React.useState({
         typeMint:''

@@ -25,14 +25,9 @@ const ChosePanelMint = ({
     NFTLoading,
     load,
     activeTab,
-    handleResetValues,
     isOwner,
     handleConfirmWithOutContent
 }) =>{
-
-    React.useEffect(() => {
-        handleResetValues();
-    },[showOptionPanel])
 
     return (
         <React.Fragment>
