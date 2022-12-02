@@ -47,13 +47,9 @@ ShowCollection.propTypes = {
 
 const PreMintMassive = ({
     data,
-    titleCollection,
-    url,
-    useFetch,
-    t
+    titleCollection
     })=>{
-    let urlCollection = `${url}`
-    const {data:projectData, loading:projectLoading, error:projectError} = useFetch(urlCollection) //collection
+
     return (
         <Box>
             <Container maxWidth="xl">
@@ -66,12 +62,7 @@ const PreMintMassive = ({
                                         <TitleH2>{titleCollection}</TitleH2>
                                     </center>
                                     <Box component='section' sx={{m:'0 auto',width:'90%',minHeight:'200px',maxHeight:'400px'}} >
-                                        <ShowCollection  
-                                            content={projectData} 
-                                            loading={projectLoading} 
-                                            error={projectError}
-                                            t={t}
-                                        />
+                                        
                                     </Box>
                                 </ContentForm>
                                 <LineDividerV orientation="vertical"  flexItem />
@@ -89,10 +80,7 @@ const PreMintMassive = ({
 
 PreMintMassive.propTypes = {
     data: PropTypes.object,
-    titleCollection: PropTypes.string,
-    url: PropTypes.string,
-    useFetch: PropTypes.func,
-    t: PropTypes.any,
+    titleCollection: PropTypes.string
 };
 
 
