@@ -1,4 +1,4 @@
 import ButtonStyled from './components/ButtonStyled';
-import PreMintMassive from './views/PreMintMassive/PreMintMassive';
+import PreMintMassive from './components/PreMintMassive/PreMintMassive';
 
 export {ButtonStyled,PreMintMassive};
