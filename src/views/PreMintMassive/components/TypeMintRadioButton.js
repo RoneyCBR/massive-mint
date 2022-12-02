@@ -76,4 +76,4 @@ TypeMintRadioButton.propTypes = {
     load: PropTypes.bool
 };
 
-export default TypeMintRadioButton;
+export {TypeMintRadioButton};

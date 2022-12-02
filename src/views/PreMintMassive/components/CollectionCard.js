@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import CardMedia from '@mui/material/CardMedia';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
-import { collections } from 'mocks/collections';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import styled from "@emotion/styled/macro";
@@ -72,7 +71,7 @@ const CollectionCard = ({ content, limit}) => {
     }
     
     return (
-        <>  
+        <React.Fragment>  
         {content.slice(0, limit).map((item, index)=>(
         <React.Fragment key={index}>
             <Background>
@@ -107,14 +106,14 @@ const CollectionCard = ({ content, limit}) => {
             </Background>
         </React.Fragment>
         ))}
-        </>
+        </React.Fragment>
     )
 
 }
 
 CollectionCard.defaultProps = {
     showBtnAll: false,
-    content: collections,
+    content: [],
     limit: 8,
 }
 
