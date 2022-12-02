@@ -1,0 +1,489 @@
+{
+    "top_bar":{
+        "about": "Nosotros", 
+        "history":"Inicio",
+        "create": "Crear",
+        "profile": "Perfil",
+        "dashboard":"Dashboard",
+        "install_metamask":{
+            "how":"Cómo instalar Metamask",
+            "here":"aquí"
+        },
+        "wallet":{
+            "connected": "Conectado a ",
+            "logout":"Desconectar",
+            "modal_receive_notifications_label":"Registrar billetera",
+            "register_email":"Registrar correo",
+            "modal_receive_notifications_btn":"Aceptar"
+        }
+    },
+    "create_view":{
+        "title":"Crear",
+        "create_nft":"NFT (Minteo por Lote)",
+        "create_pre_mint_nft":"Pre Mintear NFT",
+        "create_auction":"Crear colección"
+    },
+    "select_collection_view":{
+        "select_collection":"Seleccionar colección",
+        "collection_empty_text":"No tienes colecciones",
+        "create_collection_btn":"Crear colección",
+        "any_results":"No se han encontrado resultados"
+    },
+    "collection":{
+        "box_item_one":"Colección de",
+        "box_item_two":"Dueño de",
+        "box_item_three":"Precio mínimo",
+        "box_item_four":"Ventas totales",
+        "share_btn":"Compartir",
+        "upload_btn":"Actualizar portada",
+        "nft_tab":"Items",
+        "description_tab":"Descripción",
+        "activity_tab":"Actividad",
+        "edit": "Editar",
+        "any_results":"No se han encontrado items",
+        "loading_description":"Cargando descripción",
+        "loading_activity":"Cargando actividad"
+    },
+    "create_collection": {
+        "title": "Crear colección",
+        "upload_image": "Subir imagen",
+        "upload_banner": "Subir banner",
+        "drag_or_choose": "Arrastra o elige una imagen",
+        "collection_name": "Nombre",
+        "description": "Descripción",
+        "max_characters": "Máximo 1000 caracteres",
+        "max_wallet": "Splits Earnings are automatically deposited into each recipient’s wallet. Max 10 Wallet",
+        "resale_fee": "Comisión de venta",
+        "accept_terms": "Acepto los términos y condiciones",
+        "create_btn": "Crear",
+        "cancel_btn": "Cancelar",
+        "creating_loader": "Creando...",
+        "preview_image": "Vista previa",
+        "preview_banner": "Vista banner",
+        "select_frame": "Seleccione la miniatura de la imagen",
+        "add_wallet": "Agregar billetera",
+        "remove_wallet": "Remover billetera",
+        "add_comission": "Comisión de venta",
+        "address_wallet": "Dirección de la billetera",
+        "commision": "Comisión"
+    },
+    "edit_collection": {
+        "title": "Editar colección",
+        "btn_update": "Actualizar",
+        "modal_loader": "Actualizando...",
+        "price_nft": "Precio por NFT",
+        "update_price": "Cambiar precio"
+    },
+    "tab_selector_component":{
+        "newest":"Más nuevo",
+        "oldest":"Más antiguo",
+        "price_highest":"Precio más alto",
+        "price_lowest":"Precio más bajo"
+    },
+    "pre_mint_nft_massive":{
+        "go_to_collection": "Ir a la colección",
+        "looking_data":"Buscando datos",
+        "type_panel":{
+            "with_content": "Con contenido",
+            "without_content": "Sin contenido"
+        },
+        "total_to_mint":"Total a mintear",
+        "sale_date":"Fecha de venta",
+        "step_1":"Antes de continuar debes compartir la ruta del folder y del archivo al siguiente correo: minter@perseatools.iam.gserviceaccount.com",
+        "confirm_step_1":"He compartido la carpeta y el archivo",
+        "collection_selected":"Colección seleccionada",
+        "check_link":"Links",
+        "sheet_file_url":"Url del archivo",
+        "folder_url":"Folder url",
+        "check_btn":"Validar",
+        "mint_type":{
+            "title":"Tipo de minteo",
+            "option_mint_with_preview":"Mint con vista previa",
+            "option_mint_and_reveal":"Mint y revelar",
+            "option_blind_mint":"Mint sin vista previa"
+            
+        },
+        "price":"Precio ETH",
+        "confirm_checkbox":"Confirmar pre-minteo",
+        "pre_mint_btn":"Aceptar",
+        "cancel_btn":"Cancelar",
+        "preview":{
+            "title":"Pre-vizualización",
+            "view_btn":"Vizualizar",
+            "total_items":"Total items",
+            "from":"De",
+            "to":"al"
+        },
+        "validate_link":{
+            "valid_link":"Link valido",
+            "invalid_link":"Link incorrecto",
+            "enter_link":"Ingresa el link",
+            "only_https":"Solo se acepta https"
+        },
+        "cards":{
+            "name":"Nombre",
+            "description":"Descripción",
+            "attributes":"Atributos"
+        },
+        "message_loader":{
+            "validating_data":"Validando datos ...",
+            "confirm_pre_mint":"Confirmando ...",
+            "cancel_pre_mint":"Cancelando ..."
+        },
+        "without_preview_text":"Pre-mint NFT con contenido para cargar más tarde",
+        "message":{
+            "success_pre_mint":"Pre-mint completado exitosamente",
+            "you_dont_owner":"No eres dueño de esta colección"
+        },
+        "or":"o",
+        "pre_mint":"Pre-mint",
+        "massive_pre_mint":"Masivo",
+        "single_pre_mint":"Único"
+    },
+    "modal_switch_network":{
+        "title":"Vidanta | Open Mexico usa la red de Ethereum ",
+        "switch_network_text": "Cambiar a Ethereum"
+    },
+    "nft-screen":{
+        "you_can_view":"Puedes ver este artículo el",
+        "name_not_available":"Este artículo solo será desplegado una vez que haya sido comprado (minteado)",
+        "settings_btn":"Configuración",
+        "other_nfts":"Más NFTs",
+        "description":"Descripción",
+        "no_description":"No hay descripción disponible",
+        "no_name":"No hay nombre disponible",
+        "attributes":"Atributos",
+        "categories":"Categorías",
+        "offers":"Ofertas",
+        "transactions":"Transacciones",
+        "contract_address":"Dirección del contrato",
+        "metadata_url":"URL",
+        "collection":"Colección",
+        "editable":"Editable",
+        "uneditable":"No editable",
+        "name":"Nombre",
+        "format":"Formato",
+        "resolution":"Resolución",
+        "bid_btn":"Ofertar",
+        "buy_btn":"Comprar",
+        "view_my_offers_btn":"Ofertas",
+        "sell_settings":"Configuración de venta",
+        "transfer_btn":"Transferir",
+        "approve_btn":"Approve",
+        "edit_btn":"Editar",
+        "burn_btn":"Quemar",
+        "exchange_btn":"Intercambiar",
+        "you_have_transaction_pending":"Tienes una transacción pendiente",
+        "transaction_text":"transacción",
+        "successful_offer": "Oferta existosa de",
+        "reload_message": "Esta pagina se actualizará en 2 segundos",
+        "nft-screen":{
+            "transfer_modal_title":"Transferir NFT",
+            "approve_modal_title":"Aprobar mis NFTs",
+            "transfer_modal_button":"Transferir",
+            "approve_modal_button":"Aprobar",
+            "transaction_modal":"Transacción",
+            "text_1_2_modal":"Esta accion es irreversible",
+            "text_2_2_modal":"¿Estás seguro que deseas realizar la transferencia?",
+            "btn_sure_modal":"Estoy seguro",
+            "cancel_transaction_text":"Ha rechazado la transacción",
+            "view_in_polygonscan_text":"Ver en PolygonScan"
+        },
+        "modal_exchange":{
+            "title_modal_text":"Intercambiar NFTs",
+            "max_cards_modal_text":"Máximo 6 cartas para seleccionar",
+            "next_modal_btn":"Continuar",
+            "back_modal_btn":"Regresar",
+            "cancel_modal_btn":"Cancelar",
+            "sign_modal_btn":"Firmar",
+            "sign_success_modal_text":"Firma exitosa",
+            "request_modal_btn":"Solicitar",
+            "request_exchange_modal_btn":"Solicitar Intercambio",
+            "price_to_exchange_modal_text":"Precio por ofrecer Intercambio 0.5 USD",
+            "my_cards_modal_text":"Mis Cartas",
+            "request_nft_modal_text":"Solicitar NFT",
+            "selected_cards_text":"NFTs Seleccionados",
+            "select_cards_text":"Selecion de Cartas",
+            "request_success_text":"Solicitud exitosa",
+            "offer_success_text":"Oferta exitosa",
+            "sign_success_text":"Firma exitosa",
+            "approve_success_text":"Aprobación exitosa",
+            "transaction_modal_text":"Transacción",
+            "cards_modal_text":"Cartas",
+            "already_offered_text":"Ya exite la oferta",
+            "sending_request":"Enviando oferta",
+            "signing_amount":"Firmando",
+            "signing_request":"Firmando",
+            "mobile":{
+                "max_cards":"Máximo 6 Cartas para Seleccionar",
+                "request_exchange":"Solicitar",
+                "cancel_exchange":"Cancelar",
+                "continue":"Continuar",
+                "back":"Cerrar",
+                "exchange_success":"Solicitud de Intercambio Enviada",
+                "exchange_error":"Error al enviar la solicitud de intercambio",
+                "my_cards":"Mis cartas",
+                "to_exchange":"Intercambiar",
+                "session_expired":"Sesión Expirada",
+                "sign_exchange":"Firmar",
+                "sing_error":"Firma Rechazada",
+                "already_offered_text":"Ya exite la oferta"
+            }
+        },
+        "modal_accept_exchange":{
+            "sub_title_modal_text":"Intercambiar NTFs",
+            "offered_modal_text":"Oferta",
+            "from_modal_text":"de :",
+            "for_modal_text":"Por",
+            "exchange_modal_btn":"Intercambiar",
+            "sign_modal_btn":"Firmar",
+            "sign_success_modal_text":"Firma exitosa",
+            "refused_modal_btn":"Rechazar",
+            "cancel_modal_btn":"Cancelar",
+            "transaction_modal_text":"Transacción",
+            "price_to_exchange_modal_text":"Precio por aceptar intercambio 2 USD",
+            "success_exchange_modal_text":"Intercambio exitoso",
+            "owner_offer_fund_is_cero":"El dueño de la offerta no tiene suficientes fondos"
+        },
+        "history_movement_table":{
+            "movements_title_column":"Movimiento",
+            "type_title_column":"Tipo",
+            "status_title_column":"Estatus",
+            "nfts_title_column":"NFTs",
+            "crypto_title_column":"Crypto",
+            "usd_title_column":"USD*",
+            "from_title_column":"De",
+            "to_title_column":"Para",
+            "date_title_column":"Fecha",
+            "status_column_expires":"Expira En",
+            "approx_text":"*Aprox",
+            "status_expired_text":"Expirado"
+        },
+        "offers_modal_table":{
+            "movements_title_column":"Movimiento",
+            "type_title_column":"Tipo",
+            "status_title_column":"Estatus",
+            "nfts_title_column":"NFTs",
+            "crypto_title_column":"Crypto",
+            "usd_title_column":"USD*",
+            "from_title_column":"De",
+            "to_title_column":"Para",
+            "date_title_column":"Fecha",
+            "options":"Options",
+            "approx_text":"*Aprox",
+            "offered_title_column":"Ofertados",
+            "for_title_column":"Por"
+        },
+        "bid_modal":{
+            "success_offer_bid_text_1":"Tu oferta de",
+            "success_offer_bid_text_2":"ha sido exitosa",
+            "loading_wrapping_matic_text":"Wrapping Matic...",
+            "minimum_amount_text":"El monto mínimo a cargar es de",
+            "here_text":"aquí"
+        },
+        "view":"Ver",
+        "tabs":{
+            "offer_title":"Ofertar",
+            "buy_title":"Comprar"
+        }
+    },
+    "nft-navInfo":{
+        "name":"Colección",
+        "contract":"Contrato",
+        "token_standard":"Estándar de token",
+        "metadata":"Metadatos",
+        "creator":"Creador",
+        "owner":"Propietario"
+    },
+    "nft_details":{
+        "title":"Detalles",
+        "snowtrace":"Ver en Snowtrace",
+        "etherscan":"Ver en Etherscan",
+        "metadata":"Ver Metadata",
+        "ipfs":"Ver en IPFS",
+        "opensea":"Ver en OpenSea"
+    },
+    "trading_history":{
+        "title":"Historial"
+    },
+    "component_buy_now": {
+        "buy_now": "Comprar ahora"
+    },
+    "offers_history":{
+        "minted_text":"Creado",
+        "transferred_text":"Transferido",
+        "to_text":"a",
+        "by_text":"por",
+        "bid_placed_text":"Oferta realizada",
+        "on_auction_text":"En subasta",
+        "at_sale_text":"En venta",
+        "at_cancel":"Finalizada",
+        "you_text":"Tú",
+        "any_results":"No se han encontrado actividad",
+        "loading_activity":"Cargando actividad"
+    },
+    "sidebar_component":{
+        "filters":"Filtros",
+        "set_price":"Establecer precio",
+        "price_range":"Rango de precios",
+        "to":"a",
+        "all":"Todos",
+        "availability":"Disponibilidad",
+        "buy_now":"Comprar ahora",
+        "live_auction": "Subasta en vivo",
+        "type":"Tipo",
+        "image":"Imagen",
+        "video":"Video",
+        "reset_filters": "Borrar filtros",
+        "price_to": "a",
+        "order_by": "Ordenar",
+        "created": "Creados",
+        "news": "Nuevos",
+        "created_asc": "Creados ASC",
+        "created_desc": "Creados DESC",
+        "num_asc": "Numero ASC",
+        "num_desc": "Numero DESC",
+        "name_asc": "Nombre ASC",
+        "name_desc": "Nombre DESC",
+        "date_asc": "Fecha ASC",
+        "date_desc": "Fecha DESC",
+        "error_range_price": "Los numeros deben ser positivos",
+        "filter_artist":"Artista",
+        "filter_type":"Tipo",
+        "filter_available":"Disponible",
+        "filter_buy_now":"Comprar Ahora",
+        "filter_auction":"Subasta en vivo"
+    },
+    "cards":{
+        "auction":{
+            "your_nft_text":"Tu nft",
+            "current_bid_text":"OFERTA ACTUAL",
+            "reserve_text":"RESERVADO",
+            "short_hour_text":"H",
+            "short_minute_text":"M",
+            "short_second_text":"S",
+            "ends_text":"Termina",
+            "in_text":"en"
+        },
+        "sale":{
+            "price_text":"PRECIO"
+        },
+        "profile":{
+            "follower_text":"Seguidores"
+        }
+    },
+    "profile":{
+        "tab_collections_created":"Colecciones",
+        "update_successful":"Actualización exitosa",
+        "tabs":{
+            "offers":"Ofertas",
+            "activity":"Actividad"
+        },
+        "message_load":{
+            "loading_profile":"Cargando perfil",
+            "loading_nfts":"Cargando nfts",
+            "loading_offers":"Cargando ofertas",
+            "loading_activity":"Cargando actividad",
+            "loading_collections":"Cargando colecciones"
+        },
+        "modal_edit":{
+            "title":"Editar perfil",
+            "avatar": "Avatar",
+            "banner":"Portada",
+            "recommended": "Recomendado",
+            "username":"Usuario",
+            "enter_username":"Ingresa un usuario",
+            "username_max_length":"Max. Caracteres",
+            "not_accept_spaces": "No se aceptan espacios",
+            "email":"Email",
+            "enter_email":"Ingresa un email",
+            "description":"Descripción",
+            "max_characters":"Max. caracteres",
+            "character_error":"No se acepta",
+            "enter_valid_email":"Ingresa un email valido",
+            "save_btn":"Guardar"
+        },
+        "any_results":"No se han encontrado resultados",
+        "offers_table":{
+            "offers_made_title_table":"Ofertas realizadas",
+            "offers_received_title_table":"Ofertas recibidas"
+        },
+        "activities_table":{
+            "status_text":{
+                "inactive":"Inactivo",
+                "pending":"Pendiente",
+                "accepted":"Aceptado",
+                "rejected":"Rechazado",
+                "expired":"Expirado",
+                "canceled":"Cancelado"
+            },
+            "type_text":{
+                "mint_text":"Mint",
+                "transfer_text":"Transferencia",
+                "offers_wmatic_text":"Oferta WMATIC",
+                "offers_nft_text":"Oferta NFT",
+                "accept_nft_text":"Aceptar NFT",
+                "accept_wmatic_text":"Aceptar WMATIC"
+            }
+        },
+        "register_pop":{
+            "register_your_email_text":"Registra tu email para",
+            "complete_your_profile_text":"completar tu perfil",
+            "here_btn":"Aquí"
+        }     
+    },
+    "modal_shared":{
+        "title":"Compartir enlace",
+        "copied_link_text":"Enlace copiado"
+    },
+    "message_loader":{
+        "nft_screen":{
+            "loading":"Cargando"
+        },
+        "wallet":{
+            "loading_account":"Conectando..."
+        },
+        "collection":{
+            "loading":"Cargando"
+        },
+        "route":{
+            "loading":"Cargando"
+        }
+    },
+    "message_errors":{
+        "try_again_later":"Ha ocurrido un error, por favor inténtelo de nuevo más tarde"
+    },
+    "collection_buy_view": {
+        "not_found_white_list":"Esta billetera no se encuentra en el Mint List",
+        "hight_price":"Venta en pausa, intenta más tarde",
+        "error_valid_price":"Error al validar el precio",
+        "loading":"Cargando",
+        "view_collection": "Ver Colección",
+        "buy_with_crypto": "Comprar con crypto",
+        "buy_with_credit_card": "Tarjeta de Crédito",
+        "sold_out": "Sold out",
+        "public_mint": "Acuñar",
+        "items": "Items",
+        "max_items": "Max",
+        "minted": "Acuñados",
+        "reserved": "Reservados",
+        "price": "Precio",
+        "connect_wallet": "Conecta tu Wallet",
+        "register_user": "Registrar usuario",
+        "go_to_profile":"Ve a tu perfil, para ver tu nuevo item",
+        "nft_pay": "Tarjeta de Crédito",
+        "buy_success": "Puedes ver el estado en el explorador de bloques:",
+        "price_aprox": "Precio aproximado"
+    },
+    "update_price_collection_view": {
+        "title":"Actualizar precio",
+        "new_price":"Nuevo precio",
+        "floor_price":"Precio de piso",
+        "loading":"Actualizando precio",
+        "update_price": "Actualizar precio",
+        "buy_success": "You can view the status in the block explorer:"
+    },
+    "home_layout_view": {
+        "loading":"Cargando"
+    }
+}

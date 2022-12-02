@@ -1,0 +1,1 @@
+export {ddefault} from './ModalTransfer';
