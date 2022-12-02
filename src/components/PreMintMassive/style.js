@@ -23,6 +23,7 @@ export const ContentArea = styled(Box)(({theme}) => ({
     display:'flex',
     padding:'0px 10px',
     justifyContent:'space-between',
+    background:'rgba(0, 0, 0, 0.25)',
     gap:'10px',
     [theme.breakpoints.only('xs')]: {
         display:'block'
