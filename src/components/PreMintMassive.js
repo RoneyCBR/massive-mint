@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from '@mui/material';
+import { Container ,Box} from '@mui/material';
 import PropTypes from 'prop-types';
 
 const PreMintMassive = ({data})=>{
