@@ -782,7 +782,7 @@ const PreMintMassive = () => {
                                             >
                                                 <ContainerCards>
                                                     {
-                                                        items?.slice(sliceBottom,sliceTop).map((item,index)=>{
+                                                        items.slice(sliceBottom,sliceTop).map((item,index)=>{
                                                             return (
                                                                 <BodyCard key={index}>
                                                                     <CardGrid1>
@@ -806,7 +806,7 @@ const PreMintMassive = () => {
                                                                         </small>
                                                                     </Box>
                                                                     <CardGrid2>
-                                                                        {(item.metadata && item.metadata.json_data && item.metadata.json_data.attributes)?.map((attribute, index) => (
+                                                                        {(item.metadata && item.metadata.json_data && item.metadata.json_data.attributes).map((attribute, index) => (
                                                                             attribute.trait_type != 'Description' &&  attribute.trait_type != 'Name' && attribute.trait_type != 'Number' &&
                                                                             <Card key={index}>
                                                                                 <ListItemText 
