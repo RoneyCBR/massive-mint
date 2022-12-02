@@ -9,7 +9,11 @@ import {
     TitleH2
 } from './style';
 
-const PreMintMassive = ({data,titleCollection})=>{
+const PreMintMassive = ({
+    data,
+    titleCollection
+    })=>{
+        
     return (
         <Box>
             <Container maxWidth="xl">
