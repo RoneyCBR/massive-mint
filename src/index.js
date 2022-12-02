@@ -1,3 +1,4 @@
 import ButtonStyled from './components/ButtonStyled';
+import PreMintMassive from './views/PreMintMassive';
 
-export {ButtonStyled};
+export {ButtonStyled,PreMintMassive};
