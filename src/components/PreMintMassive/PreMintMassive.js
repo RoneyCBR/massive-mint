@@ -36,6 +36,7 @@ import {
 import ButtonStyled from './components/ButtonStyled';
 import MessageBox from './components/MessageBox';
 import CardNFT from './components/CardNFT';
+import LoaderModal from './components/LoaderModal';
 
 
 const PreMintMassive = ({
@@ -353,12 +354,17 @@ const PreMintMassive = ({
                                         </React.Fragment>
                                         }
                                     </Box>
-                                    MassiveMint {String(data.userAccount).slice(0,10)+''}
                                 </ContentFilter>
                             </ContentArea>
                         </Box>
                     </CardContent>
             </Container>
+            <LoaderModal
+                text={msgLoad}
+                isOpen={NFTLoading||load}
+                textColor='#fff'
+                spinnerColor='#fff'
+            />
         </Box>
     )
 }
