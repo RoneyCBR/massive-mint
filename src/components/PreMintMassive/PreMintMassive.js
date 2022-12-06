@@ -280,7 +280,18 @@ const PreMintMassive = ({
                                                                         </small>
                                                                     </Box>
                                                                     <CardGrid2>
-                                                                       
+                                                                        {(item.metadata && item.metadata.json_data && item.metadata.json_data.attributes).map((attribute, index) => (
+                                                                            attribute.trait_type != 'Description' &&  attribute.trait_type != 'Name' && attribute.trait_type != 'Number' &&
+                                                                            <CardList key={index}>
+                                                                                <ListItemText 
+                                                                                    primaryTypographyProps={{style: {color:'#fff',fontSize:'13px'}}}
+                                                                                    secondaryTypographyProps={{style: {color:'#B9B9B9',fontSize:'12px'}}}
+                                                                                    primary={attribute.trait_type ? (attribute.trait_type) : ''} 
+                                                                                    secondary={attribute.trait_type ? (attribute.value) : ''}
+                                                                                    sx={{textAlign:'center'}}
+                                                                                />
+                                                                            </CardList>
+                                                                        ))}
                                                                     </CardGrid2>
                                                                 </BodyCard>
                                                             )
