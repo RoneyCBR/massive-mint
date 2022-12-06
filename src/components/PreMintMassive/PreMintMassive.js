@@ -6,7 +6,9 @@ import PropTypes from 'prop-types';
 import {useFetch} from './hooks/useFetch';
 import ShowCollection from './components/ShowCollection';
 import ChosePanelMint from './components/ChosePanelMint';
-import TextBoxFilterRange from './components/TextBoxFilterRange'
+import TextBoxFilterRange from './components/TextBoxFilterRange';
+import axios from 'axios';
+import { useLocation} from 'react-router-dom'
 import {
     CardContent,
     ContentArea,
@@ -41,11 +43,15 @@ const PreMintMassive = ({
     data,
     titleCollection,
     urlCollections,
-    t
+    t,
+    sign
     })=>{
     let day = 86399000; // one day
     let nMonth = day * 30; // 30 days
     let maxDate = (new Date().getTime()) + (nMonth*3); // max date selected
+    const {search} = useLocation();
+    const query = new URLSearchParams(search);
+    const address = query.get('address');
     const [isOwner,setIsOwner] = React.useState(true);
     const [checkedSharing,setCheckedSharing] = React.useState(false);
     const [showOptionPanel, setShowOptionPanel] = React.useState({
@@ -86,11 +92,9 @@ const PreMintMassive = ({
     const [msgSuccess,setMsgSuccess] = React.useState('');
     const [NFTError,setNFTError] = React.useState(null);
     const [goToCollection,setGoToCollection] = React.useState(false);
+    const [msgLoad,setMsgLoad] = React.useState('Loading...');
     const {data:projectData, loading:projectLoading, error:projectError} = useFetch(urlCollections) //collection
     
-    const handleClick = () =>{
-        alert("puto!");
-    }
 
     const handleResetValues = () =>{
         setShowOptionPanel({
@@ -116,10 +120,60 @@ const PreMintMassive = ({
         setMsgSuccess('');
         setNFTError(null);
         setGoToCollection(false);
+        setMsgLoad('');
+    }
+
+    const handleRequest = async (body,action) =>{
+        setGoToCollection(false);
+        let url = `${process.env.REACT_APP_URL_API}/nft/massive?project_key=${address}&action=${action}&domain=${process.env.REACT_APP_DOMAIN}${action=='create'?'&create_from=sheet':''}`
+        axios.post(url,body,{
+            headers:{
+                'Content-Type': 'text/plain;charset=utf-8',
+            }
+        }).then(async(res) => {
+            setNFTError(null)
+            setLoad(false)
+            setNFTLoading(false)
+            selectActionRequest(res,body,action)
+        }).catch(error=>{
+            setGoToCollection(false);
+            setLoad(false)
+            setNFTLoading(false)
+            if (error.response) {
+                // Request made and server responded
+                if(error.response.data.message) {
+                    setNFTError(error.response.data.message)
+                }
+            } else if(error && String(error+'').includes("status code 500")){
+                setNFTError(t("message_errors.try_again_later"))
+            }else{
+                setNFTError(error)
+            }
+        })
     }
 
     const handleGetPreview = async() =>{
-       alert(22);
+        try{
+            setLoad(true)
+            setNFTLoading(true)
+            setMsgLoad(t("pre_mint_nft_massive.message_loader.validating_data"))
+            let msg = 'Approve preview nfts"'
+            let {signature , message} = await sign(msg,data.userAccount,data.provider);
+            if(signature){
+                let body = {
+                    sheet_uri: formMint.link1,
+                    folder_uri: formMint.link2,
+                    signature: signature,
+                    message: message,
+                    blockchain_name: process.env.REACT_APP_NETWORK_NAME
+                }
+                handleRequest(body,"create");
+            }
+        }catch(err){
+            console.log(err)
+            setLoad(false)
+            setNFTLoading(false)
+        }
     }
 
     const handleConfirmWithOutContent = async() =>{
@@ -151,7 +205,7 @@ const PreMintMassive = ({
                             <ContentArea>
                                 <ContentForm>
                                     <center>
-                                        <TitleH2 onClick={handleClick}>{titleCollection}</TitleH2>
+                                        <TitleH2>{titleCollection}</TitleH2>
                                     </center>
                                     <Box component='section' sx={{m:'0 auto',width:'90%',minHeight:'200px',maxHeight:'400px'}} >
                                         <ShowCollection  content={projectData} loading={projectLoading} error={projectError}/>
@@ -316,7 +370,8 @@ PreMintMassive.propTypes = {
     data: PropTypes.object,
     titleCollection: PropTypes.string,
     urlCollections: PropTypes.string,
-    t: PropTypes.any
+    t: PropTypes.any,
+    sign: PropTypes.func
 };
 
 
