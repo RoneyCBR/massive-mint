@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Divider from '@mui/material/Divider';
 import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 export const TitleH2 = styled("h2")(() => ({
     margin:'0px 0px',
@@ -352,6 +353,16 @@ export const  LineDividerMobile = styled(Divider)(({theme}) => ({
 
 export const  LineDividerD = styled(Divider)(() => ({
     background:'#fff'
+}));
+
+
+export const ButtonLink = styled(Button)(() => ({
+    marginTop:'10px',
+    background:'#00FD90',
+    color:'#000',
+    "&:hover":{
+        color:'#fff'
+    }
 }));
 
 

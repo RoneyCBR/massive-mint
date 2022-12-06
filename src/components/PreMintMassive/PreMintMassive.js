@@ -1,6 +1,7 @@
 import React from 'react';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
+import ListItemText from '@mui/material/ListItemText';
 import PropTypes from 'prop-types';
 import {useFetch} from './hooks/useFetch';
 import ShowCollection from './components/ShowCollection';
@@ -21,10 +22,19 @@ import {
     FilterDetails,
     LineDividerMobile,
     LineDividerD,
-    ContainerMessage
+    ContainerMessage,
+    ContentGoToCollection,
+    ButtonLink,
+    TextTotal,
+    ContainerCards,
+    BodyCard,
+    CardGrid1,
+    CardGrid2,
+    CardList
 } from './style';
 import ButtonStyled from './components/ButtonStyled';
 import MessageBox from './components/MessageBox';
+import CardNFT from './components/CardNFT';
 
 
 const PreMintMassive = ({
@@ -75,6 +85,7 @@ const PreMintMassive = ({
     const [items,setItems] = React.useState([]);
     const [msgSuccess,setMsgSuccess] = React.useState('');
     const [NFTError,setNFTError] = React.useState(null);
+    const [goToCollection,setGoToCollection] = React.useState(false);
     const {data:projectData, loading:projectLoading, error:projectError} = useFetch(urlCollections) //collection
     
     const handleClick = () =>{
@@ -104,6 +115,7 @@ const PreMintMassive = ({
         setItems([]);
         setMsgSuccess('');
         setNFTError(null);
+        setGoToCollection(false);
     }
 
     const handleGetPreview = async() =>{
@@ -221,6 +233,63 @@ const PreMintMassive = ({
                                          </ContainerMessage>
                                         }
                                         <MessageBox msgSuccess={msgSuccess} isOwner={isOwner} loading={projectLoading} t={t}/>
+                                        {
+                                            goToCollection && projectData && projectData.length > 0 && projectData[0] &&
+                                            <ContentGoToCollection>
+                                                <ButtonLink
+                                                    LinkComponent={Link}
+                                                    to={`/collection-buy?address=${projectData[0].project_key}`}
+                                                    type="button"
+                                                >
+                                                {t("pre_mint_nft_massive.go_to_collection")}
+                                                </ButtonLink>
+                                            </ContentGoToCollection>
+                                        }
+                                        {
+                                        (items.length > 0 || activeTab == 2) &&
+                                        <React.Fragment>
+                                            <center>
+                                                <TextTotal>Items ( {previewItems+1} {' / '+items.length} )</TextTotal>
+                                            </center>
+                                            <Box
+                                                sx={{p:'5px'}}
+                                            >
+                                                <ContainerCards>
+                                                    {
+                                                        items.slice(sliceBottom,sliceTop).map((item,index)=>{
+                                                            return (
+                                                                <BodyCard key={index}>
+                                                                    <CardGrid1>
+                                                                        <CardNFT item={item}/>
+                                                                        <Box sx={{p:'5px',color:'#fff'}}>
+                                                                            <small>
+                                                                                <b>{t("pre_mint_nft_massive.cards.name")}: </b>
+                                                                                {item.metadata.json_data.name}
+                                                                            </small>
+                                                                            <br></br>
+                                                                            <small>
+                                                                                <b>{t("pre_mint_nft_massive.cards.description")}: </b>
+                                                                                {item.metadata.json_data.description}
+                                                                            </small>
+                                                                            <br></br>
+                                                                        </Box>
+                                                                    </CardGrid1>
+                                                                    <Box sx={{width:'100%',color:'#fff'}}>
+                                                                        <small>
+                                                                            <b>{t("pre_mint_nft_massive.cards.attributes")}: </b>
+                                                                        </small>
+                                                                    </Box>
+                                                                    <CardGrid2>
+                                                                       
+                                                                    </CardGrid2>
+                                                                </BodyCard>
+                                                            )
+                                                        })
+                                                    }
+                                                </ContainerCards>
+                                            </Box>
+                                        </React.Fragment>
+                                        }
                                     </Box>
                                     MassiveMint {String(data.userAccount).slice(0,10)+''}
                                 </ContentFilter>
