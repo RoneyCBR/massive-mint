@@ -8,7 +8,9 @@ import TextBoxLink from './TextBoxLink';
 import TypeMintRadioButton from './TypeMintRadioButton';
 import {
     PanelContainer,
-    TextBox
+    TextBox,
+    TitleH3,
+    TitleText
 } from '../style';
 
 const ChosePanelMint = ({
@@ -33,7 +35,7 @@ const ChosePanelMint = ({
         <React.Fragment>
             <center>
                 {
-                    isOwner &&
+                    (!existData && isOwner) &&
                     <TypeMintRadioButton 
                         options={typePanel} 
                         type={showOptionPanel}
@@ -49,10 +51,10 @@ const ChosePanelMint = ({
                 showOptionPanel.typeMint == "without_preview" && isOwner &&
                 <PanelContainer>
                     <Box sx={{width:'100%'}}>
-                        <Box sx={{color:'#fff'}}>{t("pre_mint_nft_massive.without_preview_text")}</Box>
+                        <TitleText>{t("pre_mint_nft_massive.without_preview_text")}</TitleText>
                     </Box>
                     <center>
-                        <h3 style={{margin:'0px 0px',color:'#fff'}}>{t("pre_mint_nft_massive.total_to_mint")}*</h3>
+                        <TitleH3>{t("pre_mint_nft_massive.total_to_mint")}*</TitleH3>
                         <TextBox
                             type="number"
                             size={"small"}
@@ -62,7 +64,7 @@ const ChosePanelMint = ({
                         />
                     </center>
                     <center>
-                        <h3 style={{margin:'0px 0px',color:'#fff'}}>{t("pre_mint_nft_massive.price")}*</h3>
+                        <TitleH3>{t("pre_mint_nft_massive.price")}*</TitleH3>
                         <TextBox
                             type="number"
                             size={"small"}
@@ -72,7 +74,12 @@ const ChosePanelMint = ({
                         />
                     </center>
                     <center>
-                        <h3 style={{margin:'0px 0px',color:'#fff',display:'none'}}>{t("pre_mint_nft_massive.sale_date")}*</h3>
+                        <CalendarAndTime
+                            date={formMint} 
+                            setDate={setFormMint} 
+                            name="dateMint"
+                            maxDate={maxDate}
+                        />
                     </center>
                     <center>
                         <ButtonStyled 
@@ -84,19 +91,24 @@ const ChosePanelMint = ({
                 </PanelContainer>
             }
             {
-                showOptionPanel.typeMint == "with_preview" && isOwner &&
+                isOwner && (existData || showOptionPanel.typeMint == "with_preview") &&
                 <PanelContainer>
-                    <Box sx={{width:'100%'}}>
-                        <Box sx={{color:'#fff'}}>{t("pre_mint_nft_massive.step_1")}</Box>
-                    </Box>
-                    <center>
-                        <FormControlLabel
-                            sx={{color:'#fff'}}
-                            control={<Checkbox sx={{color:'#43B02A','&.Mui-checked': {color:'#43B02A'}}} value={checkedSharing}
-                            onChange={()=>{setCheckedSharing(!checkedSharing)}} />}
-                            label={t("pre_mint_nft_massive.confirm_step_1")}
-                        />
-                    </center>
+                    {
+                        !existData && 
+                        <React.Fragment>
+                            <Box sx={{width:'100%'}}>
+                                <TitleText>{t("pre_mint_nft_massive.step_1")}</TitleText>
+                            </Box>
+                            <center>
+                                <FormControlLabel
+                                    sx={{color:'#fff',textAlign:'left'}}
+                                    control={<Checkbox sx={{color:'#43B02A','&.Mui-checked': {color:'#43B02A'}}} value={checkedSharing}
+                                    onChange={()=>{setCheckedSharing(!checkedSharing)}} />}
+                                    label={t("pre_mint_nft_massive.confirm_step_1")}
+                                />
+                            </center>
+                        </React.Fragment>
+                    }
                     {checkedSharing && isOwner &&
                     <React.Fragment>
                         <center>
@@ -110,6 +122,7 @@ const ChosePanelMint = ({
                             size={"large"}
                             width={"100%"}
                             label={t("pre_mint_nft_massive.sheet_file_url")}
+                            t={t}
                         />
                         <TextBoxLink 
                             link={formMint}
@@ -118,7 +131,8 @@ const ChosePanelMint = ({
                             nameLink="link2"
                             size={"large"}
                             width={"100%"} 
-                            label={t("pre_mint_nft_massive.folder_url")}
+                            label={t("pre_mint_nft_massive.folder_rul")}
+                            t={t}
                         />
                         <center>
                             <ButtonStyled 
@@ -142,11 +156,20 @@ const ChosePanelMint = ({
                                     colorRadioButtons={"#43B02A"}
                                 />
                             </Box>
+                            {   
+                            formMint.typeMint == 3 && 
+                            <CalendarCustom 
+                                date={formMint} 
+                                setDate={setFormMint} 
+                                name="dateMint"
+                                maxDate={maxDate}
+                            />
+                            }
                             {
                                ( formMint.typeMint == 2 || formMint.typeMint == 3) &&
                                 <Box sx={{m:'5px 0px'}}>
                                     <center>
-                                        <h3 style={{margin:'0px 0px',color:'#fff'}}>{t("pre_mint_nft_massive.price")}*</h3>
+                                        <TitleH3>{t("pre_mint_nft_massive.price")}*</TitleH3>
                                         <TextBox
                                             type="number"
                                             size={"small"}

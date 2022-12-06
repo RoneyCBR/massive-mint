@@ -1,11 +1,9 @@
 import React from 'react';
 import TextField from '@mui/material/TextField';
 import PropTypes from 'prop-types';
-import { useTranslation } from 'react-i18next';
 
+const TextBoxLink = ({link,value,setLink,nameLink,width,size,disabled,label,t}) =>{
 
-const TextBoxLink = ({link,value,setLink,nameLink,width,size,disabled,label}) =>{
-    const { t } = useTranslation("translate");
     const [error,setError] = React.useState(null);
     const [message,setMessage] = React.useState(t("pre_mint_nft_massive.validate_link.enter_link"));
     const [first,setFirst] = React.useState(true);
@@ -104,7 +102,8 @@ TextBoxLink.propTypes = {
     width: PropTypes.any,
     size: PropTypes.string,
     disabled: PropTypes.bool,
-    label: PropTypes.string
+    label: PropTypes.string,
+    t: PropTypes.any
 }
 
 export default TextBoxLink;
