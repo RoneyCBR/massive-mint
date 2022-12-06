@@ -7,7 +7,17 @@ import TextField from '@mui/material/TextField';
 export const TitleH2 = styled("h2")(() => ({
     margin:'0px 0px',
     color:'#fff'
-}));    
+})); 
+
+export const TitleH3 = styled("h3")(() => ({
+    margin:'0px 0px',
+    color:'#fff'
+}));   
+
+export const TitleText = styled(Box)(() => ({
+    margin:'0px 0px',
+    color:'#fff'
+}));   
 
 export const CardContent = styled(Card)(() => ({
     padding:'10px 0px',
@@ -16,7 +26,8 @@ export const CardContent = styled(Card)(() => ({
     flexDirection:'column',
     gap:'15px',
     marginBottom:'50px',
-    background:'rgba(0, 0, 0, 0.25)'
+    backgroundColor:'transparent',
+    border:'1px solid #fff'
 }));
 
 export const ContentArea = styled(Box)(({theme}) => ({
@@ -64,7 +75,9 @@ export const ContentForm = styled(Box)(({theme}) => ({
 
 export const LineDividerV = styled(Divider)(({theme}) => ({
     display:'block',
-    width:'10px',
+    width:'2px',
+    background:'rgba(255,255,255,0.5)',
+    borderRadius:'1px 1px',
     [theme.breakpoints.only('xs')]: {
         display:'none'
     },
@@ -84,7 +97,8 @@ export const LineDividerV = styled(Divider)(({theme}) => ({
 
 export const LineDividerH = styled(Divider)(({theme}) => ({
     display:'none',
-    height:'10px',
+    height:'5px',
+    background:'rgba(255,255,255,0.5)',
     [theme.breakpoints.only('xs')]: {
         display:'block'
     },
@@ -157,6 +171,11 @@ export const FilterForm = styled(Box)(() => ({
     color:'#fff'
 }));
 
+export const ContentGoToCollection = styled(Box)(() => ({
+    display:'flex',
+    justifyContent:'center'
+}));
+
 export const FilterDetailsContent = styled(Box)(() => ({
     display:'flex',
     justifyContent:'flex-end'
@@ -210,6 +229,8 @@ export const BodyCard = styled(Card)(({theme}) => ({
     maxWidth:'300px',
     minHeight:'200px',
     margin:'5px',
+    backgroundColor:'transparent',
+    border:'1px solid #fff',
     [theme.breakpoints.only('xs')]: {
         maxWidth:'100%'
     },
@@ -253,6 +274,11 @@ export const CardGrid2 = styled(Box)(() => ({
     gridTemplateColumns:'repeat(3,1fr)',
     gap:'5px',
     marginTop:'5px'
+}));
+
+export const CardList = styled(Card)(() => ({
+    background:'transparent',
+    border:'1px solid #fff'
 }));
 
 export const MessageBoxContainer = styled(Box)(() => ({
