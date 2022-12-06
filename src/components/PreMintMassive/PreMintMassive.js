@@ -38,7 +38,6 @@ import MessageBox from './components/MessageBox';
 import CardNFT from './components/CardNFT';
 import LoaderModal from './components/LoaderModal';
 
-
 const PreMintMassive = ({
     data,
     titleCollection,
