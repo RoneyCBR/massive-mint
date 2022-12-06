@@ -8,7 +8,6 @@ import ShowCollection from './components/ShowCollection';
 import ChosePanelMint from './components/ChosePanelMint';
 import TextBoxFilterRange from './components/TextBoxFilterRange';
 import axios from 'axios';
-import { useLocation } from 'react-router-dom'
 import {
     CardContent,
     ContentArea,
@@ -44,14 +43,12 @@ const PreMintMassive = ({
     titleCollection,
     urlCollections,
     t,
-    sign
+    sign,
+    addressCollection
     })=>{
     let day = 86399000; // one day
     let nMonth = day * 30; // 30 days
     let maxDate = (new Date().getTime()) + (nMonth*3); // max date selected
-    const {search} = useLocation();
-    const query = new URLSearchParams(search);
-    const address = query.get('address');
     const [isOwner,setIsOwner] = React.useState(true);
     const [checkedSharing,setCheckedSharing] = React.useState(false);
     const [showOptionPanel, setShowOptionPanel] = React.useState({
@@ -125,7 +122,7 @@ const PreMintMassive = ({
 
     const handleRequest = async (body,action) =>{
         setGoToCollection(false);
-        let url = `${process.env.REACT_APP_URL_API}/nft/massive?project_key=${address}&action=${action}&domain=${process.env.REACT_APP_DOMAIN}${action=='create'?'&create_from=sheet':''}`
+        let url = `${process.env.REACT_APP_URL_API}/nft/massive?project_key=${addressCollection}&action=${action}&domain=${process.env.REACT_APP_DOMAIN}${action=='create'?'&create_from=sheet':''}`
         axios.post(url,body,{
             headers:{
                 'Content-Type': 'text/plain;charset=utf-8',
@@ -371,7 +368,8 @@ PreMintMassive.propTypes = {
     titleCollection: PropTypes.string,
     urlCollections: PropTypes.string,
     t: PropTypes.any,
-    sign: PropTypes.func
+    sign: PropTypes.func,
+    addressCollection: PropTypes.string
 };
 
 
