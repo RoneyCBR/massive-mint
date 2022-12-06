@@ -45,6 +45,7 @@ const PreMintMassive = ({
     urlCollections,
     t,
     sign,
+    deploy,
     addressCollection
     })=>{
     let day = 86399000; // one day
@@ -427,6 +428,7 @@ PreMintMassive.propTypes = {
     urlCollections: PropTypes.string,
     t: PropTypes.any,
     sign: PropTypes.func,
+    deploy: PropTypes.func,
     addressCollection: PropTypes.string
 };
 
