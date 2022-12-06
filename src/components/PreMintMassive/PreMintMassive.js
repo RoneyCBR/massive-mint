@@ -121,6 +121,58 @@ const PreMintMassive = ({
         setMsgLoad('');
     }
 
+    
+
+    const selectActionRequest = async (res,body,action) =>{
+        if(action == 'create' && res){
+            setMsgSuccess("preview success") 
+            setMetadataFolder(res.data.metadata_folder_url)
+            handleResetValues();
+            getDataIfExistsNfts();
+        }else
+        if(action == 'cancel'){
+            handleResetValues();
+        }else
+        if(action == 'confirm'){
+            console.log('res to confirm',res)
+            if(metadataFolder && items.length > 0) {
+                console.log('metadata_folder_url ::', metadataFolder, formMint.price, items.length)
+                await deploy( metadataFolder+"/", body.price,data.userAccount,data.provider);
+                handleResetValues();
+            }
+            setGoToCollection(true);
+            setMsgSuccess(t("pre_mint_nft_massive.message.success_pre_mint"))
+        }
+    }
+
+    const getDataIfExistsNfts = async () =>{
+        setLoad(true)
+        setNFTLoading(true)
+        setMsgLoad(t("pre_mint_nft_massive.looking_data"));
+        setNFTError('')
+        setExistData(false)
+        setActiveTab(1)
+        let url = `${process.env.REACT_APP_URL_API}/nft/massive?project_key=${address}&domain=${process.env.REACT_APP_DOMAIN}`
+        axios.get(url).then(async(res) => {
+            setLoad(false)
+            setNFTLoading(false)
+            selectActionIFExistNFTs(res);
+        }).catch(er=>{
+            setLoad(false)
+            setNFTLoading(false)
+            setExistData(false)
+            setActiveTab(1)
+            if(er && String(er+'').includes("status code 500")){
+                setNFTError(t("message_errors.try_again_later"))
+            }else{
+                setNFTError(er)
+            }
+            handleResetValues();
+            setNFTError(null)
+        })
+    }
+
+
     const handleRequest = async (body,action) =>{
         setGoToCollection(false);
         let url = `${process.env.REACT_APP_URL_API}/nft/massive?project_key=${addressCollection}&action=${action}&domain=${process.env.REACT_APP_DOMAIN}${action=='create'?'&create_from=sheet':''}`
