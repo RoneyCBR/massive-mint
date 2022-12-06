@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import {useFetch} from './hooks/useFetch';
 import ShowCollection from './components/ShowCollection';
 import ChosePanelMint from './components/ChosePanelMint';
+import TextBoxFilterRange from './components/TextBoxFilterRange'
 import {
     CardContent,
     ContentArea,
@@ -14,8 +15,12 @@ import {
     LineDividerH,
     ContentFilter,
     FilterTitle,
-    FilterBody
+    FilterBody,
+    FilterForm,
+    FilterDetailsContent,
+    FilterDetails
 } from './style';
+import ButtonStyled from './components/ButtonStyled';
 
 
 const PreMintMassive = ({
@@ -56,6 +61,13 @@ const PreMintMassive = ({
     const [load,setLoad] = React.useState(false);
     const [activeTab, setActiveTab] = React.useState(1);
     const [NFTLoading,setNFTLoading] = React.useState(false);
+    const [range,setRange] = React.useState({
+        rangeBottom:0,
+        rangeTop:0,
+        limit:0
+    })
+    const [sliceBottom,setSliceBottom] = React.useState(0);
+    const [sliceTop,setSliceTop] = React.useState(range.limit);
 
     const {data:projectData, loading:projectLoading, error:projectError} = useFetch(urlCollections) //collection
     
@@ -91,6 +103,17 @@ const PreMintMassive = ({
 
     const handleConfirmWithOutContent = async() =>{
         alert("confirm")
+    }
+
+    const handleRangeFilter = () =>{
+        if((range.rangeTop-range.rangeBottom) < 0 || (range.rangeTop-range.rangeBottom) > 29){
+            setSliceBottom(0);
+            setSliceTop(29);
+        }else{
+            setSliceTop(range.rangeTop)
+            setSliceBottom(range.rangeBottom);
+            setPreviewItems((range.rangeTop-range.rangeBottom))
+        }        
     }
 
     React.useEffect(()=>{
@@ -139,7 +162,45 @@ const PreMintMassive = ({
                                         <FilterTitle>{t("pre_mint_nft_massive.preview.title")}</FilterTitle>
                                     </center>
                                     <FilterBody>
-
+                                        <Box>
+                                            <FilterForm>
+                                                <TextBoxFilterRange 
+                                                    range={range}
+                                                    setRange={setRange}
+                                                    nameRange="rangeBottom"
+                                                    value={range.rangeBottom}
+                                                    size={"small"}
+                                                    label={"MIN"}
+                                                    width={"100%"}
+                                                    maxNumber={items.length}
+                                                />
+                                                <h3>{t("pre_mint_nft_massive.preview.to")}</h3>
+                                                <TextBoxFilterRange 
+                                                    range={range}
+                                                    setRange={setRange}
+                                                    nameRange="rangeTop"
+                                                    value={range.rangeTop}
+                                                    size={"small"}
+                                                    label={"MAX"}
+                                                    width={"100%"}
+                                                    maxNumber={items.length}
+                                                />
+                                                <ButtonStyled 
+                                                    width={"250px"}
+                                                    text={t("pre_mint_nft_massive.preview.view_btn")}
+                                                    onClick={handleRangeFilter}
+                                                    isDisabled={items.length == 0 || items == null || items == undefined}
+                                                />
+                                            </FilterForm>
+                                        </Box>
+                                        {items.length > 0 && 
+                                        <FilterDetailsContent>
+                                            <FilterDetails>
+                                                <Box><b>{t("pre_mint_nft_massive.preview.total_items")}: </b>{items.length}</Box>
+                                                <Box><b>{t("pre_mint_nft_massive.preview.from")}: </b>{sliceBottom == 0?1:sliceBottom+1} <b>{t("pre_mint_nft_massive.preview.to")}: </b>{sliceTop}</Box>
+                                            </FilterDetails>
+                                        </FilterDetailsContent>
+                                        }
                                     </FilterBody>
                                     MassiveMint {String(data.userAccount).slice(0,10)+''}
                                 </ContentFilter>
