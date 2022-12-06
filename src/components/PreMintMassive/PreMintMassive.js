@@ -68,7 +68,7 @@ const PreMintMassive = ({
     })
     const [sliceBottom,setSliceBottom] = React.useState(0);
     const [sliceTop,setSliceTop] = React.useState(range.limit);
-
+    const [items,setItems] = React.useState([]);
     const {data:projectData, loading:projectLoading, error:projectError} = useFetch(urlCollections) //collection
     
     const handleClick = () =>{
@@ -95,6 +95,7 @@ const PreMintMassive = ({
         setNFTLoading(false);
         setLoad(false);
         setActiveTab(1);
+        setItems([])
     }
 
     const handleGetPreview = async() =>{
