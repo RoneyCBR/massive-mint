@@ -28,7 +28,8 @@ const ChosePanelMint = ({
     load,
     activeTab,
     isOwner,
-    handleConfirmWithOutContent
+    handleConfirmWithOutContent,
+    existData
 }) =>{
 
     return (
@@ -205,7 +206,8 @@ ChosePanelMint.propTypes = {
     maxDate: PropTypes.any,
     handleResetValues: PropTypes.func,
     isOwner: PropTypes.bool,
-    handleConfirmWithOutContent: PropTypes.func
+    handleConfirmWithOutContent: PropTypes.func,
+    existData: PropTypes.bool
 }
 
 export default ChosePanelMint;

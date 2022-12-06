@@ -279,6 +279,7 @@ const PreMintMassive = ({
                                         handleResetValues={handleResetValues}
                                         isOwner={isOwner}
                                         handleConfirmWithOutContent={handleConfirmWithOutContent}
+                                        existData={existData}
                                     />
                                 </ContentForm>
                                 <LineDividerV orientation="vertical"  flexItem />
