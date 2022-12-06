@@ -328,6 +328,31 @@ export const TextBox= styled(TextField)(() => ({
     }
 }));
 
+export const  LineDividerMobile = styled(Divider)(({theme}) => ({
+    display:'none',
+    background:'#fff',
+    m:'10px 0px',
+    [theme.breakpoints.only('xs')]: {
+        display:'block'
+    },
+    [theme.breakpoints.only('sm')]: {
+        display:'block'
+    },
+    [theme.breakpoints.only('md')]: {
+        display:'none'
+    },
+    [theme.breakpoints.only('lg')]: {
+        display:'none'
+    },
+    [theme.breakpoints.only('xl')]: {
+        display:'none'
+    }
+}));
+
+
+export const  LineDividerD = styled(Divider)(() => ({
+    background:'#fff'
+}));
 
 
 

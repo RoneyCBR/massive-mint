@@ -18,9 +18,13 @@ import {
     FilterBody,
     FilterForm,
     FilterDetailsContent,
-    FilterDetails
+    FilterDetails,
+    LineDividerMobile,
+    LineDividerD,
+    ContainerMessage
 } from './style';
 import ButtonStyled from './components/ButtonStyled';
+import MessageBox from './components/MessageBox';
 
 
 const PreMintMassive = ({
@@ -69,6 +73,8 @@ const PreMintMassive = ({
     const [sliceBottom,setSliceBottom] = React.useState(0);
     const [sliceTop,setSliceTop] = React.useState(range.limit);
     const [items,setItems] = React.useState([]);
+    const [msgSuccess,setMsgSuccess] = React.useState('');
+    const [NFTError,setNFTError] = React.useState(null);
     const {data:projectData, loading:projectLoading, error:projectError} = useFetch(urlCollections) //collection
     
     const handleClick = () =>{
@@ -95,7 +101,9 @@ const PreMintMassive = ({
         setNFTLoading(false);
         setLoad(false);
         setActiveTab(1);
-        setItems([])
+        setItems([]);
+        setMsgSuccess('');
+        setNFTError(null);
     }
 
     const handleGetPreview = async() =>{
@@ -159,6 +167,7 @@ const PreMintMassive = ({
                                 <LineDividerV orientation="vertical"  flexItem />
                                 <LineDividerH orientation="horizontal"  flexItem />
                                 <ContentFilter>
+                                    <LineDividerMobile />
                                     <center>
                                         <FilterTitle>{t("pre_mint_nft_massive.preview.title")}</FilterTitle>
                                     </center>
@@ -203,6 +212,16 @@ const PreMintMassive = ({
                                         </FilterDetailsContent>
                                         }
                                     </FilterBody>
+                                    <Box>
+                                        <LineDividerD />
+                                        {
+                                        !load && NFTError &&
+                                        <ContainerMessage>  
+                                            <h3>{NFTError+''}</h3>
+                                         </ContainerMessage>
+                                        }
+                                        <MessageBox msgSuccess={msgSuccess} isOwner={isOwner} loading={projectLoading} t={t}/>
+                                    </Box>
                                     MassiveMint {String(data.userAccount).slice(0,10)+''}
                                 </ContentFilter>
                             </ContentArea>
