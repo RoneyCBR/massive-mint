@@ -33,7 +33,7 @@ const ButtonStyled = ({text, maxWidth, width, isDisabled=false, onClick, icon, t
             }} 
         >
             <span>
-                Btn - {text}
+                {text}
             </span>
         </Button>
     )

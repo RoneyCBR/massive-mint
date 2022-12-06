@@ -12,7 +12,9 @@ import {
     TitleH2,
     LineDividerV,
     LineDividerH,
-    ContentFilter
+    ContentFilter,
+    FilterTitle,
+    FilterBody
 } from './style';
 
 
@@ -133,6 +135,12 @@ const PreMintMassive = ({
                                 <LineDividerV orientation="vertical"  flexItem />
                                 <LineDividerH orientation="horizontal"  flexItem />
                                 <ContentFilter>
+                                    <center>
+                                        <FilterTitle>{t("pre_mint_nft_massive.preview.title")}</FilterTitle>
+                                    </center>
+                                    <FilterBody>
+
+                                    </FilterBody>
                                     MassiveMint {String(data.userAccount).slice(0,10)+''}
                                 </ContentFilter>
                             </ContentArea>
