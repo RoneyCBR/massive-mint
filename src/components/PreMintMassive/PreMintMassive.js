@@ -92,6 +92,7 @@ const PreMintMassive = ({
     const [NFTError,setNFTError] = React.useState(null);
     const [goToCollection,setGoToCollection] = React.useState(false);
     const [msgLoad,setMsgLoad] = React.useState('Loading...');
+    const [existData,setExistData] = React.useState(false);
     const {data:projectData, loading:projectLoading, error:projectError} = useFetch(urlCollections) //collection
     
 
