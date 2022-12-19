@@ -45,7 +45,10 @@ const PreMintMassive = ({
     t,
     sign,
     deploy,
-    addressCollection
+    addressCollection,
+    domain,
+    blockchainName,
+    api
     })=>{
     let day = 86399000; // one day
     let nMonth = day * 30; // 30 days
@@ -92,6 +95,7 @@ const PreMintMassive = ({
     const [goToCollection,setGoToCollection] = React.useState(false);
     const [msgLoad,setMsgLoad] = React.useState('Loading...');
     const [existData,setExistData] = React.useState(false);
+    const [previewItems,setPreviewItems] = React.useState(0);
     const {data:projectData, loading:projectLoading, error:projectError} = useFetch(urlCollections) //collection
     
 
@@ -146,6 +150,40 @@ const PreMintMassive = ({
         }
     }
 
+    const selectActionIFExistNFTs = (res) =>{
+        if(res && res.data && res.data.length > 0){
+            setExistData(true)
+            setActiveTab(2)
+            let newItems = [];
+            newItems = res.data;
+            setItems(newItems);
+            setSliceBottom(1);
+            setFormMint({
+                ...formMint,
+                typeMint:'2'
+            });
+            if(newItems.length > 30){
+                setRange({...range,
+                    rangeBottom:1,
+                    rangeTop:30,
+                    limit:newItems.length 
+                });
+                setSliceTop(30)
+            }else{
+                setRange({...range,
+                    rangeBottom:1,
+                    rangeTop:newItems.length,
+                    limit:newItems.length 
+                });
+                setSliceTop(newItems.length)
+            }
+        }else{
+            handleResetValues();
+            setExistData(false)
+            setActiveTab(1)
+        }
+    }
+
     const getDataIfExistsNfts = async () =>{
         setLoad(true)
         setNFTLoading(true)
@@ -153,7 +191,7 @@ const PreMintMassive = ({
         setNFTError('')
         setExistData(false)
         setActiveTab(1)
-        let url = `${process.env.REACT_APP_URL_API}/nft/massive?project_key=${address}&domain=${process.env.REACT_APP_DOMAIN}`
+        let url = `${api}/nft/massive?project_key=${addressCollection}&domain=${domain}`
         axios.get(url).then(async(res) => {
             setLoad(false)
             setNFTLoading(false)
@@ -176,7 +214,7 @@ const PreMintMassive = ({
 
     const handleRequest = async (body,action) =>{
         setGoToCollection(false);
-        let url = `${process.env.REACT_APP_URL_API}/nft/massive?project_key=${addressCollection}&action=${action}&domain=${process.env.REACT_APP_DOMAIN}${action=='create'?'&create_from=sheet':''}`
+        let url = `${api}/nft/massive?project_key=${addressCollection}&action=${action}&domain=${domain}${action=='create'?'&create_from=sheet':''}`
         axios.post(url,body,{
             headers:{
                 'Content-Type': 'text/plain;charset=utf-8',
@@ -216,7 +254,7 @@ const PreMintMassive = ({
                     folder_uri: formMint.link2,
                     signature: signature,
                     message: message,
-                    blockchain_name: process.env.REACT_APP_NETWORK_NAME
+                    blockchain_name: blockchainName
                 }
                 handleRequest(body,"create");
             }
@@ -245,6 +283,7 @@ const PreMintMassive = ({
     React.useEffect(()=>{
         handleResetValues();
         setIsOwner(true);
+        getDataIfExistsNfts();
     },[])
 
     return (
@@ -430,7 +469,10 @@ PreMintMassive.propTypes = {
     t: PropTypes.any,
     sign: PropTypes.func,
     deploy: PropTypes.func,
-    addressCollection: PropTypes.string
+    addressCollection: PropTypes.string,
+    domain: PropTypes.string,
+    blockchainName: PropTypes.string,
+    api: PropTypes.string
 };
 
 

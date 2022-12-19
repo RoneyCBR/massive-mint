@@ -75,14 +75,6 @@ const ChosePanelMint = ({
                         />
                     </center>
                     <center>
-                        <CalendarAndTime
-                            date={formMint} 
-                            setDate={setFormMint} 
-                            name="dateMint"
-                            maxDate={maxDate}
-                        />
-                    </center>
-                    <center>
                         <ButtonStyled 
                             text={t("pre_mint_nft_massive.pre_mint_btn")}
                             onClick={handleConfirmWithOutContent}
@@ -142,7 +134,7 @@ const ChosePanelMint = ({
                                 isDisabled={NFTLoading || load || !formMint.isValid.link1 || !formMint.isValid.link2}
                             />
                         </center>
-                        </React.Fragment>
+                    </React.Fragment>
                     }
                     {
                         activeTab == 2 && isOwner &&
@@ -157,15 +149,6 @@ const ChosePanelMint = ({
                                     colorRadioButtons={"#43B02A"}
                                 />
                             </Box>
-                            {   
-                            formMint.typeMint == 3 && 
-                            <CalendarCustom 
-                                date={formMint} 
-                                setDate={setFormMint} 
-                                name="dateMint"
-                                maxDate={maxDate}
-                            />
-                            }
                             {
                                ( formMint.typeMint == 2 || formMint.typeMint == 3) &&
                                 <Box sx={{m:'5px 0px'}}>
