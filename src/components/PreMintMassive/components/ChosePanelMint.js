@@ -70,7 +70,7 @@ const ChosePanelMint = ({
                             size={"small"}
                             label={""}
                             value={formMint.totalMint}
-                            name={t("pre_mint_nft_massive.total_to_mint")}
+                            name={"totalMint"}
                             onChange={(e)=>{handleChange(e)}}
                         />
                     </center>
@@ -81,7 +81,7 @@ const ChosePanelMint = ({
                             size={"small"}
                             label={""}
                             value={formMint.price}
-                            name={t("pre_mint_nft_massive.price")}
+                            name={"price"}
                             onChange={(e)=>{handleChange(e)}}
                         />
                     </center>
@@ -170,7 +170,7 @@ const ChosePanelMint = ({
                                             size={"small"}
                                             label={""}
                                             value={formMint.price}
-                                            name={t("pre_mint_nft_massive.price")}
+                                            name={"price"}
                                             onChange={(e)=>{handleChange(e)}}
                                         />
                                     </center>
