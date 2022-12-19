@@ -17,7 +17,6 @@ const Background = styled(Card)({
   [`:hover ${CardMedia}`]: {
     backgroundColor: "rgba(0,0,0,.5)",
   },
-
   [`:hover ${CardMedia}`]: {
     opacity: 1,
   },
@@ -49,8 +48,8 @@ const CardNFT = ({item}) => {
                 item.metadata && item.metadata.is_video ?
                 <CardMedia
                     className='card-media'
-                    component={'img'}
-                    src={item && item.thumb_gif}
+                    component={'video'}
+                    src={item && item.thumb_url}
                     autoPlay
                     loop
                     muted
@@ -66,7 +65,7 @@ const CardNFT = ({item}) => {
                 <CardMedia
                     className='card-media'
                     component={'img'}
-                    src={item && item.thumb_resize}
+                    src={item && item.thumb_url}
                     autoPlay
                     loop
                     muted

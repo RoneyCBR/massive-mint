@@ -251,10 +251,11 @@ export const BodyCard = styled(Card)(({theme}) => ({
 
 export const CardGrid1 = styled(Box)(({theme}) => ({
     display:'grid',
-    gridTemplateColumns:'1fr 60%',
+    gridTemplateColumns:'300px 60%',
     width:'100%',
+    height:'auto',
     [theme.breakpoints.only('xs')]: {
-        gridTemplateColumns:'1fr 60%'
+        gridTemplateColumns:'100px 60%'
     },
     [theme.breakpoints.only('sm')]: {
         gridTemplateColumns:'100px 1fr'
@@ -263,10 +264,10 @@ export const CardGrid1 = styled(Box)(({theme}) => ({
         gridTemplateColumns:'100px 1fr'
     },
     [theme.breakpoints.only('lg')]: {
-        gridTemplateColumns:'3100px 1fr'
+        gridTemplateColumns:'110px 1fr'
     },
     [theme.breakpoints.only('xl')]: {
-        gridTemplateColumns:'1fr 60%'
+        gridTemplateColumns:'110px  60%'
     }
 }));
 
