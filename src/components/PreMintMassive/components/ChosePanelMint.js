@@ -32,6 +32,15 @@ const ChosePanelMint = ({
     existData
 }) =>{
 
+    const handleChange = (e) =>{
+        const {value,name} = e.target;
+        if(value > 0){
+            setFormMint({...formMint,[name]:value});
+        }else{
+            setFormMint({...formMint,[name]:value==""?value:0});
+        }
+    }
+
     return (
         <React.Fragment>
             <center>
@@ -61,7 +70,8 @@ const ChosePanelMint = ({
                             size={"small"}
                             label={""}
                             value={formMint.totalMint}
-                            onChange={(e)=>{Number(e.target.value) >= 0 && setFormMint({...formMint,totalMint:Number(e.target.value)})}}
+                            name={t("pre_mint_nft_massive.total_to_mint")}
+                            onChange={(e)=>{handleChange(e)}}
                         />
                     </center>
                     <center>
@@ -71,7 +81,8 @@ const ChosePanelMint = ({
                             size={"small"}
                             label={""}
                             value={formMint.price}
-                            onChange={(e)=>{Number(e.target.value) >= 0 && setFormMint({...formMint,price:Number(e.target.value)})}}
+                            name={t("pre_mint_nft_massive.price")}
+                            onChange={(e)=>{handleChange(e)}}
                         />
                     </center>
                     <center>
@@ -159,7 +170,8 @@ const ChosePanelMint = ({
                                             size={"small"}
                                             label={""}
                                             value={formMint.price}
-                                            onChange={(e)=>{Number(e.target.value) >= 0 && setFormMint({...formMint,price:Number(e.target.value)})}}
+                                            name={t("pre_mint_nft_massive.price")}
+                                            onChange={(e)=>{handleChange(e)}}
                                         />
                                     </center>
                                 </Box>
