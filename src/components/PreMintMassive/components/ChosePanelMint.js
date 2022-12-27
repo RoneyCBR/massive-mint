@@ -161,7 +161,7 @@ const ChosePanelMint = ({
                                 />
                             </Box>
                             {
-                               ( formMint.typeMint == 2 || formMint.typeMint == 3) &&
+                               ( formMint.typeMint == 2 ) &&
                                 <Box sx={{m:'5px 0px'}}>
                                     <center>
                                         <TitleH3>{t("pre_mint_nft_massive.price")}*</TitleH3>
