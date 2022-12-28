@@ -17,7 +17,8 @@ export const TitleH3 = styled("h3")(() => ({
 
 export const TitleText = styled(Box)(() => ({
     margin:'0px 0px',
-    color:'#fff'
+    color:'#fff',
+    wordWrap: 'break-word'
 }));   
 
 export const CardContent = styled(Card)(() => ({
@@ -359,6 +360,7 @@ export const  LineDividerD = styled(Divider)(() => ({
 
 export const ButtonLink = styled(Button)(() => ({
     marginTop:'10px',
+    minWidth:'200px',
     background:'#00FD90',
     color:'#000',
     "&:hover":{

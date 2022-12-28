@@ -5,7 +5,6 @@ import {
     TitleH2,
     ButtonLink
 } from '../style';
-import { Link } from 'react-router-dom';
 
 const CompletePreMint = ({addressOwner,projectData,children,t}) =>{
 
@@ -54,17 +53,17 @@ const CompletePreMint = ({addressOwner,projectData,children,t}) =>{
                         }}
                     >   
                         <ButtonLink 
-                            LinkComponent={Link}
+                            LinkComponent={'a'}
                             width='200px'
-                            to={`/create/select-collection?address=${addressOwner}`}
+                            href={`/create/select-collection?address=${addressOwner}`}
                         >
                             {t("pre_mint_nft_massive.collection_minted.go_back_btn")}
                         </ButtonLink>
 
                         <ButtonLink 
-                            LinkComponent={Link}
+                            LinkComponent={'a'}
                             width='200px'
-                            to={`/collection?address=${projectData.project_key}`}
+                            href={`/collection?address=${projectData.project_key}`}
                         >
                              {t("pre_mint_nft_massive.collection_minted.go_to_collection_btn")}
                         </ButtonLink>

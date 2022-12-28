@@ -102,6 +102,7 @@ const PreMintMassive = ({
     const [msgLoad,setMsgLoad] = React.useState('Loading...');
     const [existData,setExistData] = React.useState(false);
     const [previewItems,setPreviewItems] = React.useState(0);
+    const [metadataFolder,setMetadataFolder] = React.useState(null);
     const {data:projectData, loading:projectLoading, error:projectError} = useFetch(urlCollections) //collection
     const [collectionComplete,setCollectionComplete] = React.useState(null);
 
@@ -254,7 +255,15 @@ const PreMintMassive = ({
             setNFTLoading(true)
             setMsgLoad(t("pre_mint_nft_massive.message_loader.validating_data"))
             let msg = 'Approve preview nfts"'
-            let {signature , message} = await sign(msg,data.userAccount,data.provider);
+            let {signature , message} = await sign(msg,data.userAccount,data.provider).catch((error)=>{
+                if(error.code == '4001'){
+                    setNFTError(t("message_errors.cancel_sign"));
+                }else{
+                    setNFTError(error);
+                }
+                setLoad(false)
+                setNFTLoading(false);
+            });
             if(signature){
                 let body = {
                     sheet_uri: formMint.link1,
@@ -601,8 +610,8 @@ const PreMintMassive = ({
                                                     goToCollection && projectData && projectData.length > 0 && projectData[0] &&
                                                     <ContentGoToCollection>
                                                         <ButtonLink
-                                                            LinkComponent={Link}
-                                                            to={`/collection-buy?address=${projectData[0].project_key}`}
+                                                            LinkComponent={'a'}
+                                                            href={`/collection-buy?address=${projectData[0].project_key}`}
                                                             type="button"
                                                         >
                                                         {t("pre_mint_nft_massive.go_to_collection")}

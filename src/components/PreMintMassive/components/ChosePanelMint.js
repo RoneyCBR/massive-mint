@@ -60,7 +60,7 @@ const ChosePanelMint = ({
             {
                 showOptionPanel.typeMint == "without_preview" && isOwner &&
                 <PanelContainer>
-                    <Box sx={{width:'100%'}}>
+                    <Box sx={{width:'calc(100% - 1px)'}}>
                         <TitleText>{t("pre_mint_nft_massive.without_preview_text")}</TitleText>
                     </Box>
                     <center>
@@ -100,7 +100,7 @@ const ChosePanelMint = ({
                     {
                         !existData && 
                         <React.Fragment>
-                            <Box sx={{width:'100%'}}>
+                            <Box sx={{width:'calc(100% - 5px)'}}>
                                 <TitleText>{t("pre_mint_nft_massive.step_1")}</TitleText>
                             </Box>
                             <center>

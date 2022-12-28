@@ -1,3 +1,4 @@
+
 var path = require('path');
 module.exports = {
   entry: './src/index.js',
@@ -10,6 +11,21 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+            },
+          },
+        ],
+      },
       {
         test: /\.js$/,
         include: path.resolve(__dirname, 'src'),
