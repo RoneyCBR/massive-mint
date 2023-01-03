@@ -11,11 +11,11 @@ import LoaderModal from './components/LoaderModal';
 import { useHistory } from "react-router-dom";
 import {TextField, UploadFile } from './styles/styles';
 import ErrorMessage from './components/ErrorMessage';
-import { Editor } from "react-draft-wysiwyg";
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { convertToRaw } from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
 import customToolBar from './utils/customToolBar';
+import { Editor } from "react-draft-wysiwyg";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 /* Validating the form fields. */
 const collectionSchema = Yup.object().shape({
@@ -604,9 +604,9 @@ const CreateCollection = ({sign,data,t,isValidFormat,isVideo,nameAndSymbol,imgDe
                                                         toolbar={customToolBar}
                                                         placeholder={t('create_collection.description')}
                                                         editorState={editorState}
-                                                        toolbarClassName="toolbarClassName"
-                                                        wrapperClassName="wrapperClassName"
-                                                        editorClassName="editorClassName"
+                                                        toolbarClassName='toolbarClassName'
+                                                        wrapperClassName='wrapperClassName'
+                                                        editorClassName='editorClassName'
                                                         onEditorStateChange={setEditorState}
                                                         marginX={10}
                                                         onChange={
