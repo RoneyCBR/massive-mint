@@ -9,6 +9,9 @@ module.exports = {
     // :mindblow: Perdí mas de 2 dias hasta darme cuenta que esta es la linea mas importante de toda esta guia.
     libraryTarget: 'commonjs2'
   },
+  mode:{
+    mode: 'none'
+  },
   module: {
     rules: [
       {
