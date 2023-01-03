@@ -8,7 +8,6 @@ import PropTypes from 'prop-types';
 import * as Yup from 'yup';
 import axios from 'axios';
 import LoaderModal from './components/LoaderModal';
-import { useHistory } from "react-router-dom";
 import {TextField, UploadFile } from './styles/styles';
 import ErrorMessage from './components/ErrorMessage';
 import { convertToRaw } from 'draft-js';
@@ -47,7 +46,7 @@ const CreateCollection = ({sign,data,t,isValidFormat,isVideo,nameAndSymbol,imgDe
     const [current, setCurrent] = useState(0);
     const hiddenFileInput = useRef(null);
     const hiddenFileInputBanner = useRef(null);
-    const history = useHistory()
+
     const timeVideoRef = useRef(null);
     const timeVideoBannerRef = useRef(null);
 
@@ -75,7 +74,7 @@ const CreateCollection = ({sign,data,t,isValidFormat,isVideo,nameAndSymbol,imgDe
     }
 
     const cancel = () => {
-        history.push('/home')
+        window.location.href ='/home'
     }
 
     const handleDragOver = (e)=>{
@@ -377,7 +376,7 @@ const CreateCollection = ({sign,data,t,isValidFormat,isVideo,nameAndSymbol,imgDe
                                                         console.log('success ::', success)
                                                         resetForm()
                                                         setSubmitting(false);
-                                                        history.push('/create')
+                                                        window.location.href ='/create'
                                                         }).catch((error) => {
                                                             console.log('error ::', error)
                                                             setMsgError(error);

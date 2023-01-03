@@ -9,7 +9,7 @@
     "start:staging": "env-cmd -f .env.staging react-scripts start",
     "start:production": "env-cmd -f .env.production react-scripts start",
     "test": "react-scripts test",
-    "build": "webpack --mode=none",
+    "build": "webpack --mode=development",
     "build:staging": "env-cmd -f .env.staging cross-env GENERATE_SOURCEMAP=false react-scripts build",
     "prettier:fix": "prettier './src/**/*.js' --write",
     "eslint:fix": "eslint ./src --fix",

@@ -10,7 +10,7 @@ module.exports = {
     libraryTarget: 'commonjs2'
   },
   mode:{
-    mode: 'none'
+    mode: 'development'
   },
   module: {
     rules: [
