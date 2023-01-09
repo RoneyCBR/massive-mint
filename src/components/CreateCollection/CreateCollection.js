@@ -36,7 +36,7 @@ const formats = ['PNG','GIF','JPG','MP4','JPEG'];
  * It's a function that returns a form to create a project (collection)
  * @returns A component CreateCollection 
  */
-const CreateCollection = ({sign,data,t,isValidFormat,isVideo,nameAndSymbol,imgDefaultPreview,api,domain}) => {
+const CreateCollection = ({sign,data,t,isValidFormat,isVideo,nameAndSymbol,imgDefaultPreview,api,domain,bgContentEditor}) => {
     let maxImgSize = 2097152 // 2097152 bytes = 2 MB
     const [preview, setPreview] = useState('');
     const [bannerPreview, setBannerPreview] = useState('');
@@ -595,7 +595,7 @@ const CreateCollection = ({sign,data,t,isValidFormat,isVideo,nameAndSymbol,imgDe
                                                 </Box>
                                                
                                                 
-                                                <Box sx={{background:'#1973B8',padding:'10px'}}>
+                                                <Box className={"contentEditor"} sx={{background:bgContentEditor,padding:'10px'}}>
                                                     <Box
                                                         id='description'
                                                         name='description'
@@ -672,6 +672,10 @@ const CreateCollection = ({sign,data,t,isValidFormat,isVideo,nameAndSymbol,imgDe
     )
 }
 
+CreateCollection.defaultProps = {
+    bgContentEditor: ''
+}
+
 CreateCollection.propTypes = {
     sign: PropTypes.func,
     data: PropTypes.object,
@@ -681,7 +685,8 @@ CreateCollection.propTypes = {
     nameAndSymbol: PropTypes.func,
     imgDefaultPreview: PropTypes.string,
     api: PropTypes.string,
-    domain: PropTypes.string
+    domain: PropTypes.string,
+    bgContentEditor: PropTypes.string
 };
 
 
