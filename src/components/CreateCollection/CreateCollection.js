@@ -36,7 +36,7 @@ const formats = ['PNG','GIF','JPG','MP4','JPEG'];
  * It's a function that returns a form to create a project (collection)
  * @returns A component CreateCollection 
  */
-const CreateCollection = ({sign,data,t,isValidFormat,isVideo,nameAndSymbol,imgDefaultPreview,api,domain,bgContentEditor}) => {
+const CreateCollection = ({sign,data,t,isValidFormat,isVideo,nameAndSymbol,imgDefaultPreview,api,domain,blockchain,bgContentEditor}) => {
     let maxImgSize = 2097152 // 2097152 bytes = 2 MB
     const [preview, setPreview] = useState('');
     const [bannerPreview, setBannerPreview] = useState('');
@@ -368,7 +368,7 @@ const CreateCollection = ({sign,data,t,isValidFormat,isVideo,nameAndSymbol,imgDe
                                                         is_video : (preview.isVideo)? 1 : 0,
                                                         domain : domain,
                                                         action : 'CREATED_PROJECT',
-                                                        blockchain_name : process.env.REACT_APP_NETWORK_NAME,
+                                                        blockchain_name : blockchain,
                                                         thumb_second: preview.isVideo ? Math.round(timeVideoRef.current.currentTime) : -1,
                                                     }
                                                     await axios.post(api+ `/project?domain=${domain} `,collection)
@@ -686,6 +686,7 @@ CreateCollection.propTypes = {
     imgDefaultPreview: PropTypes.string,
     api: PropTypes.string,
     domain: PropTypes.string,
+    blockchain: PropTypes.string,
     bgContentEditor: PropTypes.string
 };
 
