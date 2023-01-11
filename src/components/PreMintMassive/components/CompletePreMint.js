@@ -6,7 +6,7 @@ import {
     ButtonLink
 } from '../style';
 
-const CompletePreMint = ({addressOwner,projectData,children,t}) =>{
+const CompletePreMint = ({addressOwner,projectData,children,t,handleRoute}) =>{
 
     React.useEffect(() => {
         let customScroll = document.querySelector(".custom-scroll")
@@ -53,19 +53,17 @@ const CompletePreMint = ({addressOwner,projectData,children,t}) =>{
                         }}
                     >   
                         <ButtonLink 
-                            LinkComponent={'a'}
                             width='200px'
-                            href={`/create/select-collection?address=${addressOwner}`}
+                            onClick={()=>handleRoute(`/create/select-collection?address=${addressOwner}`)}
                         >
                             {t("pre_mint_nft_massive.collection_minted.go_back_btn")}
                         </ButtonLink>
 
                         <ButtonLink 
-                            LinkComponent={'a'}
                             width='200px'
-                            href={`/collection?address=${projectData.project_key}`}
+                            onClick={()=>handleRoute(`/collection?address=${projectData.project_key}`)}
                         >
-                             {t("pre_mint_nft_massive.collection_minted.go_to_collection_btn")}
+                            {t("pre_mint_nft_massive.collection_minted.go_to_collection_btn")}
                         </ButtonLink>
                     </Box>
                 </Box>
@@ -80,7 +78,8 @@ CompletePreMint.propTypes = {
     addressOwner: PropTypes.any,
     projectData: PropTypes.object,
     children: PropTypes.node,
-    t: PropTypes.any
+    t: PropTypes.any,
+    handleRoute: PropTypes.func
 };
 
 export default CompletePreMint;

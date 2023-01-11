@@ -52,7 +52,8 @@ const PreMintMassive = ({
     addressCollection,
     domain,
     blockchainName,
-    api
+    api,
+    handleRoute
     })=>{
     let day = 86399000; // one day
     let nMonth = day * 30; // 30 days
@@ -481,8 +482,17 @@ const PreMintMassive = ({
                         <React.Fragment>
                             <br></br>
                             <CardContent>
-                                <CompletePreMint addressOwner={data.userAccount} projectData={projectData[0]} t={t}>
-                                    <ShowCollection  content={projectData} loading={projectLoading} error={projectError}/>
+                                <CompletePreMint 
+                                    addressOwner={data.userAccount} 
+                                    projectData={projectData[0]} 
+                                    t={t}
+                                    handleRoute={handleRoute}
+                                >
+                                    <ShowCollection 
+                                        content={projectData} 
+                                        loading={projectLoading}
+                                        error={projectError}
+                                    />
                                 </CompletePreMint>
                             </CardContent>
                         </React.Fragment>
@@ -703,7 +713,8 @@ PreMintMassive.propTypes = {
     addressCollection: PropTypes.string,
     domain: PropTypes.string,
     blockchainName: PropTypes.string,
-    api: PropTypes.string
+    api: PropTypes.string,
+    handleRoute: PropTypes.func
 };
 
 

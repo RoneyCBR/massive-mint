@@ -36,7 +36,7 @@ const formats = ['PNG','GIF','JPG','MP4','JPEG'];
  * It's a function that returns a form to create a project (collection)
  * @returns A component CreateCollection 
  */
-const CreateCollection = ({sign,data,t,isValidFormat,isVideo,nameAndSymbol,imgDefaultPreview,api,domain,blockchain,bgContentEditor}) => {
+const CreateCollection = ({sign,data,t,isValidFormat,isVideo,nameAndSymbol,imgDefaultPreview,api,domain,blockchain,bgContentEditor,handleRoute}) => {
     let maxImgSize = 2097152 // 2097152 bytes = 2 MB
     const [preview, setPreview] = useState('');
     const [bannerPreview, setBannerPreview] = useState('');
@@ -74,7 +74,7 @@ const CreateCollection = ({sign,data,t,isValidFormat,isVideo,nameAndSymbol,imgDe
     }
 
     const cancel = () => {
-        window.location.href ='/home'
+        handleRoute('/create');
     }
 
     const handleDragOver = (e)=>{
@@ -376,7 +376,7 @@ const CreateCollection = ({sign,data,t,isValidFormat,isVideo,nameAndSymbol,imgDe
                                                         console.log('success ::', success)
                                                         resetForm()
                                                         setSubmitting(false);
-                                                        window.location.href ='/create'
+                                                        handleRoute('/create');
                                                         }).catch((error) => {
                                                             console.log('error ::', error)
                                                             setMsgError(error);
@@ -673,7 +673,8 @@ const CreateCollection = ({sign,data,t,isValidFormat,isVideo,nameAndSymbol,imgDe
 }
 
 CreateCollection.defaultProps = {
-    bgContentEditor: ''
+    bgContentEditor: '',
+    handleRoute: (e) => {console.log(e)}
 }
 
 CreateCollection.propTypes = {
@@ -687,7 +688,8 @@ CreateCollection.propTypes = {
     api: PropTypes.string,
     domain: PropTypes.string,
     blockchain: PropTypes.string,
-    bgContentEditor: PropTypes.string
+    bgContentEditor: PropTypes.string,
+    handleRoute: PropTypes.func
 };
 
 
